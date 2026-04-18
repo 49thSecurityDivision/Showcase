@@ -1,0 +1,12 @@
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "49SD Showcase"
+
+[taxonomies]
+  author = "authors"
+  tag = "tags"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

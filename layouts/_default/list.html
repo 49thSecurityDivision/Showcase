@@ -1,0 +1,23 @@
+{{ define "main" }}
+    <h1 style="text-align:center; font-size: 3rem; margin-bottom: 2rem;">LATEST_DISPATCHES</h1>
+    <div class="posts">
+        {{ range .Pages }}
+        <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: block;">
+            <div class="glass-panel">
+                <div class="meta">
+                    <span>{{ .Date.Format "2006/01/02" }}</span>
+                    <span>
+                    {{ range (.GetTerms "authors") }}
+                        @{{ .LinkTitle }}
+                    {{ end }}
+                    </span>
+                </div>
+                <h2 style="margin: 0 0 1rem 0; font-size: 1.8rem;">{{ .Title }}</h2>
+                <div class="post-content" style="font-size: 1rem; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                    {{ .Summary }}
+                </div>
+            </div>
+        </a>
+        {{ end }}
+    </div>
+{{ end }}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <nav>
+        <a href="/" class="brand">&lt;49SD_SHOWCASE /&gt;</a>
+        <div class="nav-links">
+            <a href="/authors/">AUTHORS</a>
+            <a href="/editor/index.html" style="color:var(--accent);">[PUBLISH]</a>
+        </div>
+    </nav>
+    <main class="container">
+        {{ block "main" . }}{{ end }}
+    </main>
+</body>
+</html>
