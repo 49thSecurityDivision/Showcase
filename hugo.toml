@@ -1,12 +1,64 @@
-baseURL = "https://example.org/"
+baseURL = "/"
 languageCode = "en-us"
 title = "49SD Showcase"
+theme = "stack"
 
 [taxonomies]
-  author = "authors"
-  tag = "tags"
+    category = "categories"
+    tag = "tags"
+    author = "authors"
+
+[params]
+    mainSections = ["post"]
+    featuredImageField = "image"
+    
+    [params.sidebar]
+        avatar = "https://github.com/49thSecurityDivision.png"
+        subtitle = "Cybersecurity Division Showcase"
+        compact = false
+
+    [params.footer]
+        since = 2026
+        customText = "49th Security Division"
+
+    [params.colorScheme]
+        toggle = true
+        default = "dark"
+
+[menu]
+    [[menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
+        weight = 1
+        params = { icon = "home" }
+
+    [[menu.main]]
+        identifier = "authors"
+        name = "Members"
+        url = "/authors"
+        weight = 2
+        params = { icon = "users" }
+
+    [[menu.main]]
+        identifier = "categories"
+        name = "Categories"
+        url = "/categories"
+        weight = 3
+        params = { icon = "hash" }
+
+    [[menu.social]]
+        identifier = "github"
+        name = "GitHub"
+        url = "https://github.com/49thSecurityDivision"
+        weight = 1
+        params = { icon = "brand-github" }
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+    [markup.tableOfContents]
+        endLevel = 4
+        ordered = false
+        startLevel = 2

@@ -1,14 +1,31 @@
 {{ define "main" }}
-    <h1 style="text-align:center; font-size: 3rem; margin-bottom: 2rem;">ROSTER</h1>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
+    <header>
+        <h3 class="section-title">Members</h3>
+        <div class="section-card">
+            <div class="section-details">
+                <h3 class="section-count">{{ len .Data.Terms }} Members</h3>
+                <h1 class="section-term">Roster</h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="article-list--tile" style="margin-top: 2rem;">
         {{ range .Data.Terms.ByCount }}
-            <a href="{{ .Page.Permalink }}" style="text-decoration: none;">
-                <div class="glass-panel" style="text-align: center; margin-bottom: 0;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">👤</div>
-                    <h2 style="margin: 0;">@{{ .Page.Title }}</h2>
-                    <p style="color: var(--text-muted); font-family: var(--font-mono);">{{ .Count }} Dispatch(es)</p>
-                </div>
-            </a>
+            <article class="has-image">
+                <a href="{{ .Page.Permalink }}">
+                    <div class="article-image">
+                        <img src="https://github.com/{{ .Page.Title }}.png" loading="lazy" data-key="" data-hash="">
+                    </div>
+                    <div class="article-details">
+                        <h2 class="article-title">@{{ .Page.Title }}</h2>
+                        <footer class="article-time">
+                            {{ .Count }} Dispatch(es)
+                        </footer>
+                    </div>
+                </a>
+            </article>
         {{ end }}
-    </div>
+    </section>
+
+    {{ partialCached "footer/footer" . }}
 {{ end }}
